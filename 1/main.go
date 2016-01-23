@@ -25,7 +25,7 @@ type templateHandler struct {
 }
 
 // ServerHttpはHTTPリクエストを処理します
-func (t *templateHandler) ServerHTTP(w http.ResponseWriter, r *http.Request) {
+func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	t.once.Do(func() {
 		t.templ =
 			template.Must(template.ParseFiles(filepath.Join("templates", t.filename)))
